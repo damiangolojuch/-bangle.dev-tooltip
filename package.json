@@ -1,5 +1,5 @@
 {
-  "name": "@bangle.dev/tooltip",
+  "name": "@bangle.dev/react-menu",
   "version": "0.32.1",
   "homepage": "https://bangle.dev",
   "authors": [
@@ -10,8 +10,9 @@
     }
   ],
   "type": "module",
-  "main": "src/index.ts",
-  "module": "src/index.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "style": "style.css",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -19,6 +20,33 @@
   },
   "bugs": {
     "url": "https://github.com/bangle-io/bangle.dev/issues"
+  },
+  "dependencies": {
+    "@bangle.dev/base-components": "0.32.1",
+    "@bangle.dev/utils": "0.32.1",
+    "@types/jest": "^29.5.3",
+    "prop-types": "^15.7.2"
+  },
+  "peerDependencies": {
+    "@bangle.dev/core": "*",
+    "@bangle.dev/pm": "*",
+    "@bangle.dev/react": "*",
+    "@bangle.dev/tooltip": "*",
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@bangle.dev/all-base-components": "0.32.1",
+    "@bangle.dev/core": "0.32.1",
+    "@bangle.dev/pm": "0.32.1",
+    "@bangle.dev/react": "0.32.1",
+    "@bangle.dev/tooltip": "0.32.1",
+    "@testing-library/react": "^11.2.7",
+    "@types/prop-types": "^15.7.4",
+    "@types/react": "^17.0.45",
+    "@types/react-dom": "^17.0.17",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "publishConfig": {
     "access": "public",
@@ -33,24 +61,12 @@
       "./style.css": "./style.css"
     }
   },
-  "style": "style.css",
-  "scripts": {
-    "compile-ts": "yarn g:tsc --build $INIT_CWD",
-    "watch-ts": "yarn g:tsc -p $INIT_CWD -w"
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./style.css": "./style.css"
   },
-  "peerDependencies": {
-    "@bangle.dev/core": "*",
-    "@bangle.dev/pm": "*"
-  },
-  "devDependencies": {
-    "@bangle.dev/all-base-components": "workspace:*",
-    "@bangle.dev/core": "workspace:*",
-    "@bangle.dev/pm": "workspace:*",
-    "@bangle.dev/test-helpers": "workspace:*"
-  },
-  "dependencies": {
-    "@bangle.dev/utils": "workspace:*",
-    "@popperjs/core": "^2.11.5",
-    "@types/jest": "^29.5.3"
-  }
+  "types": "dist/index.d.ts"
 }
